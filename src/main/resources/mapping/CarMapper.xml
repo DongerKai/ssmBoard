@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+    <mapper namespace="com.heitian.ssm.dao.CarDao">
+
+    <resultMap id="CarBaseMap" type="com.heitian.ssm.model.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_phone" property="userPhone" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
+        <result column="pwd_salt" property="pwdSalt" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
+        <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
+    </resultMap>
+
+    <select id="selectAllInfo" resultMap="CarBaseMap">
+        SELECT * FROM t_user WHERE user_name = "赵大宝"
+    </select>
+
+    <select id="addUser" resultMap="CarBaseMap">
+        INSERT INTO t_user (user_name) VALUE ('test')
+    </select>
+</mapper>
